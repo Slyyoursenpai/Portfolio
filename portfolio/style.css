@@ -1,0 +1,436 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;500;700&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,html {
+    background-color: white;
+    color: black;
+    font-size: large;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    scroll-behavior: smooth;
+    height: 100%;
+    margin:0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+.btn {
+    background-color: powderblue;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 16px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    display: inline-block;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    font-weight: 700;
+    transition: 0.5s;
+}
+
+a:hover {
+    cursor:pointer;
+    transform: scale(1.1);
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+}
+
+h1 {
+    color: black;
+    font-size: large;
+}
+
+h2 {
+    color: black;
+    font-size: medium;
+}
+
+.padding {
+    padding: 50px 0px;
+}
+
+main {
+    background-color: rgb(75, 71, 145);
+    max-width: 95vw;
+    margin: 8px auto;
+    padding: 24px 0 0 0;
+    border-radius: 12px;
+}
+
+header {
+    background-color: aquamarine;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    height: 50px;
+    margin: 0 16px;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.logo {
+    font-size: large;
+    color: black;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+}
+
+nav ul li a {
+    display: inline-block;
+    padding: auto;
+    margin: 0 16px;
+}
+
+@media screen and (max-width: 768px) {
+    #welcome-section {
+        height: 100vh;
+    }
+    header {
+        justify-content: space-between;
+    }
+    .logo {
+        padding-left: 16px;
+        font-size: medium;
+    }
+    .nav-icon {
+        padding-right: 16px;
+    }
+    
+    
+}
+
+.intro {
+    background-color: powderblue;
+    display: flex;
+    align-items: center;
+}
+
+.intro section {
+    width: 100%;
+    margin: auto;
+}
+
+.intro-left {
+    padding-left: 10%;
+}
+
+.intro-sub-title {
+    color:black;
+    font-size: medium;
+    font-weight: 450;
+}
+
+.intro-title {
+    margin-bottom: 25px;
+}
+
+.intro-right {
+    padding-right: 10px;
+}
+
+.bottom {
+    display: flex;
+    justify-content:space-between;
+    text-align: center;
+    align-items: center;
+    padding: 0 16px;
+    margin-top: -75px;
+}
+
+.intro-scroll {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    background-color: white;
+    color: whitesmoke;
+    padding: 16px 8px;
+    border-radius: 3px;
+}
+
+
+
+
+
+@media screen and (max-width: 768px) {
+    .intro {
+        flex-direction: column-reverse;
+        background-color: powderblue;
+    }
+    .intro-right {
+        padding-right: 0;
+        margin: auto;
+        max-width: 65%;
+    }
+    .intro-left {
+        padding-left: 0;
+        text-align: center;
+    }
+    .intro-title {
+        margin-bottom: 16px;
+    }
+    
+}
+
+.section-header {
+    text-align: center;
+    width: 100%;
+    padding-bottom: 32px;
+    margin-top: 100px;
+}
+
+.section-header .sub-title {
+    color: black;
+    font-size: large;
+    font-weight: 500;   
+}
+
+.Work {
+    background-color:whitesmoke;
+}
+
+.Work-box {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    text-align: center;
+    align-items: center; 
+    flex-direction: column;
+}
+
+.Work-item-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-left: 50px;
+    margin-top: 32px;
+}
+
+.Work-left {
+    min-width: 50%;
+}
+
+.Work-item {
+    width: 95%;
+    padding: 56px;
+    font-weight: 700;
+    transition: 0.5s;
+}
+
+.Work-item:hover {
+    transform: scale(1.2);
+    box-shadow: 0px 0px 32px 0px powderblue;
+    border-radius: 2px;
+}
+
+.Work-icon {
+    font-size: 32px;
+    color: black;
+}
+
+.Work-name {
+    color: black;
+}
+
+.Work-info {
+    color: black;
+}
+
+@media screen and (max-width: 768px) {
+    .Work-box {
+        width: 90%;
+        flex-direction: column;
+    }
+    .Work-item-box {
+        margin: auto;
+    }
+    .Work-left {
+        display: none;
+    }
+}
+
+.Projects {
+    background-color: powderblue;
+}
+ .Projects-title{
+    text-align: center;
+ }
+.Projects-box {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.Projects-item {
+   
+    border: 10px;
+    border-width: 50px;
+    border-color: rgb(0, 0, 0);
+    display: block;
+    width: 100%;
+    padding: 16px;
+    margin: 8px auto;
+    background-color: white;
+    border-radius: 2px;
+    transition: 0.5s;
+    position: relative;
+}
+.iscan{
+    display: block;
+    margin: 0 auto;
+}
+
+.Projects-item:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    box-shadow: inset;
+    border-radius: 2px;
+}
+
+
+.Projects-desc {
+    font-weight: 500;
+}
+
+@media screen and (max-width: 768px) {
+    .Projects-box {
+        width: 90%;
+        flex-direction: column;
+    }
+    .Projects-item {
+        width: 100%;
+
+    }
+    
+}
+
+.inner-margin {
+    margin: 12px 0;
+}
+
+
+footer {
+    background-color: black;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    margin: 0;
+    padding: 20px 0;
+    border-radius: 0 0 12px 12px;
+    
+   
+}
+
+footer{
+    background-color: rgb(75, 71, 145);
+}
+.copyright {
+    margin-top: 10px;
+    
+}
+.CareerObjective {
+    background-color: powderblue; /* Set the background color */
+}
+
+.CareerObjective-box {
+    margin: 10px;
+    max-width: 95vw;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.CareerObjective-content {
+    font-size: large;
+}
+
+.skills{
+    margin-top: 100px;
+    
+}
+
+.divider{
+    width: 2px;
+    height: 100%;
+    background-color: black;
+    margin: 0 auto;
+}
+.work-desc{
+    font-size: medium;
+}
+.a:link{
+    color:aqua;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:visited {
+    color: black;
+    background-color: transparent;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: rgb(144, 23, 83);
+    background-color: transparent;
+    text-decoration: underline;
+  }
+  
+  a:active {
+    color: yellow;
+    background-color: transparent;
+    text-decoration: underline;
+  }
+  .btn {
+    background-color: powderblue;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 16px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-decoration: none; /* Remove default underline */
+    display: inline-block;
+}
+
+.btn:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    padding-right: 50px;
+}
+
+h3{
+    font-size: large;
+}
