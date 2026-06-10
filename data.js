@@ -218,6 +218,6 @@ const DATA = {
     "Research Collaborations",
   ],
 
-  //contactNote: "Full-time roles in Tokyo / Saitama area. Remote-first international teams also welcome.",
+  contactNote: "Full-time roles in Tokyo / Saitama / Japan / Remote",
 
 };
