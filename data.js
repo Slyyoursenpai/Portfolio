@@ -8,16 +8,16 @@ const DATA = {
 
   // ── PERSONAL INFO ────────────────────────────────────────
   name:     "Mahirul Alam Chowdhury",
-  role:     "QA Engineer & AI Developer",
+  role:     "QA Engineer",
   location: "Saitama / Tokyo, Japan | Chittagong, Bangladesh",
   email:    "chymahirul13@gmail.com",
-  linkedin: "linkedin.com/in/YOUR_LINKEDIN",
+  linkedin: "linkedin.com/in/https://www.linkedin.com/in/mahirul-alam-chowdhury-222bb9205/",
   github:   "github.com/Slyyoursenpai",
-  cv:       "./cv.pdf",               // path to your CV file, or a Google Drive link
+  cv:       "https://drive.google.com/file/d/1NBlzLBVTLia3ukdyc_Jpy0lMA6JUKrsX/view?usp=sharing", // path to your CV file, or a Google Drive link
   status:   "Available",             // shown in the hero pill
 
   // short bio shown in hero
-  heroBio: "Breaking systems so users don't have to. MSc candidate at Tokyo International University, with 1.5+ years building test infrastructure and shipping lightweight AI for constrained devices.",
+  heroBio: "Breaking systems so users don't have to. Computer Science grad, with 1.5+ years engineering test infrastructure and testing software quality for webapps and SAAS products",
 
   // ── STATS (hero right panel) ─────────────────────────────
   stats: [
@@ -31,8 +31,9 @@ const DATA = {
   about: {
     // Each string becomes a paragraph
     paragraphs: [
-      "I'm a QA Engineer and AI developer currently based in <strong>Saitama, Japan</strong>, pursuing an MSc in Digital Business & Innovation at <strong>Tokyo International University</strong>. My engineering background is in software quality assurance, where I built test automation infrastructure using Selenium, Java, and BDD frameworks.",
-      "On the research side, I published a paper in <strong>IET Cyber-Physical Systems (2024)</strong> on mobile cataract detection — a lightweight CNN deployed via TensorFlow Lite on Android, demonstrating that real-world constraints are a design parameter, not an afterthought.",
+      "I'm a QA Engineer with a Computer Science and Engineering background. My engineering background is in software quality assurance, where I designed test requirements, test plans, carried out regression, functional tests and designed Automation Testing Suites",
+      "On the research side, I published a paper in <strong>IET Cyber-Physical Systems (2024)</strong> on mobile cataract detection — a lightweight CNN deployed via TensorFlow Lite on Android.",
+      "I'm also passionate about video games, video game design and learning about game designs and development as a solo dev ",
       "I'm actively targeting <strong>QA, SDET, and tech roles at English-friendly companies in Japan</strong> — global tech firms, foreign-affiliated companies, and multinational consultancies. I bring both the systematic mindset of a tester and the curiosity of a builder.",
     ],
     // Sidebar cards — add/remove freely
@@ -149,15 +150,15 @@ const DATA = {
       link:      "hhttps://github.com/Slyyoursenpai/I-Scan",
       linkLabel: "View on GitHub",
     },
-    {
+  /*  {
       title:     "NotePal",
       sub:       "Note app powered by AI retrieval and context awareness",
       desc:      "React app with AI integration for AI-assisted summarisation, and Q&A over personal notes.",
       tags:      ["React", "LLM", "RAG", "Vector DB", "Web Development"],
       link:      "https://github.com/Slyyoursenpai",
       linkLabel: "View on GitHub",
-    },
-
+    }, */
+ 
     {
       title:     "Pixel Invaders",
       sub:       "Classic Retro inspired arcade shooter developed using Pico-8 Engine",
@@ -170,14 +171,14 @@ const DATA = {
     },
 
 
-    {
+  /*  {
       title:     "This Portfolio",
       sub:       "Vanilla HTML · CSS · JS",
       desc:      "Built without a framework. Dark editorial aesthetic, Syne + DM Mono typefaces, scroll-reveal animations. Data-driven — all content lives in data.js.",
       tags:      ["HTML", "CSS", "JavaScript"],
       link:      "https://github.com/Slyyoursenpai/Portfolio",
       linkLabel: "View source",
-    },
+    }, */
   ],
 
   // ── SKILLS / STACK ───────────────────────────────────────
@@ -185,39 +186,38 @@ const DATA = {
   skills: [
     {
       category: "QA / Testing",
-      items: ["Selenium", "Playwright", "Postman", "Cucumber", "BDD/Gherkin", "JIRA", "TestNG"],
+      items: ["Manual Testing", "Regression/Functional Testing", "Selenium", "Playwright", "Postman", "Cucumber", "BDD/Gherkin", "CI/CD", "JIRA", "TestNG", "Test Requirement Design", "Agile", "TDD"],
     },
     {
       category: "Languages",
-      items: ["Java", "Python", "TypeScript", "JavaScript", "Kotlin", "SQL"],
+      items: ["Java", "Python", "TypeScript", "JavaScript", "C", "PHP", "SQL","Lua"],
     },
-    {
+    /*{
       category: "AI / ML",
       items: ["TensorFlow Lite", "ONNX Runtime", "ChromaDB", "LanceDB", "RAG", "Claude API"],
-    },
+    },*/
     {
       category: "Frontend / Mobile",
-      items: ["React", "Android", "Jetpack Compose", "HTML/CSS", "Tailwind"],
+      items: ["React", "Android", "Java", "HTML/CSS", "Tailwind"],
     },
     {
       category: "Data / Backend",
-      items: ["PostgreSQL", "Firebase", "Room DB", "REST APIs", "SQLite"],
+      items: ["PostgreSQL", "MySQL", "REST APIs", "AWS"],
     },
     {
       category: "Tools / Infra",
-      items: ["Git / GitHub", "GitHub Actions", "Tailscale", "Linux", "VS Code"],
+      items: ["Git / GitHub", "GitHub Actions", "Jenkins", "Docker", "VS Code", "Android Studio", "IntelliJ"],
     },
   ],
 
   // ── CONTACT — open to ────────────────────────────────────
   openTo: [
-    "QA Engineer / SDET",
+    "SQA Engineer / SDET",
     "Test Automation Engineer",
     "Junior AI/ML Engineer",
-    "Android Developer (QA-adjacent)",
     "Research Collaborations",
   ],
 
-  contactNote: "Full-time roles in Tokyo / Saitama area. Remote-first international teams also welcome.",
+  //contactNote: "Full-time roles in Tokyo / Saitama area. Remote-first international teams also welcome.",
 
 };
