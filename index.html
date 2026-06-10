@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" id="meta-desc" content="">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#080c0a">
+<title id="page-title"></title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&family=Syne:wght@400;500;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAV — built by JS -->
+<nav id="navbar">
+  <div class="nav-logo" id="nav-logo"></div>
+  <ul class="nav-links" id="nav-links"></ul>
+  <a href="#contact" class="nav-cta">Hire Me</a>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO — built by JS -->
+<div class="hero" id="hero"></div>
+
+<!-- SECTIONS — built by JS -->
+<div id="sections"></div>
+
+<!-- FOOTER — built by JS -->
+<footer id="footer"></footer>
+
+<!-- ── DATA THEN RENDERER ── -->
+<script src="data.js"></script>
+<script>
+// ============================================================
+//  INDEX.HTML — Renders DATA from data.js into the page.
+//  You should not need to edit this file.
+// ============================================================
+
+// ── helpers ──────────────────────────────────────────────────
+const el  = (tag, cls, html) => { const e = document.createElement(tag); if (cls) e.className = cls; if (html) e.innerHTML = html; return e; };
+const div = (cls, html) => el('div', cls, html);
+const pad = (n) => String(n).padStart(2, '0');
+
+// ── page meta ────────────────────────────────────────────────
+document.getElementById('page-title').textContent  = `${DATA.name} — ${DATA.role}`;
+document.getElementById('meta-desc').content        = `${DATA.name} — ${DATA.role} based in ${DATA.location}.`;
+
+// ── nav logo ─────────────────────────────────────────────────
+const initials = DATA.name.split(' ').map(w => w[0]).join('').slice(0, 2);
+document.getElementById('nav-logo').innerHTML =
+  `${initials}<span>_</span>`;
+
+// ── nav links ────────────────────────────────────────────────
+const navSections = ['About','Work','Research','Projects','Stack','Contact'];
+const navIds      = ['about','experience','research','projects','stack','contact'];
+const navUl = document.getElementById('nav-links');
+navSections.forEach((label, i) => {
+  const li = el('li');
+  const a  = el('a'); a.href = `#${navIds[i]}`; a.textContent = label;
+  li.appendChild(a); navUl.appendChild(li);
+});
+
+// ── hero ─────────────────────────────────────────────────────
+const hero = document.getElementById('hero');
+hero.innerHTML = `
+  <div>
+    <div class="hero-eyebrow">${DATA.location}</div>
+    <h1>${DATA.name.split(' ')[0]}<br><em>${DATA.name.split(' ').slice(1).join(' ')}.</em></h1>
+    <p class="hero-sub"><strong>${DATA.role}</strong> — ${DATA.heroBio}</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Get in touch</a>
+      <a href="#projects" class="btn-ghost">View my work</a>
+    </div>
+    <div class="terminal-line">
+      ${initials.toLowerCase()}@tokyo:~ pytest --all-green <span class="cursor"></span>
+    </div>
+  </div>
+  <div class="hero-right" id="hero-right"></div>
+`;
+
+const heroRight = document.getElementById('hero-right');
+DATA.stats.forEach(s => {
+  heroRight.appendChild(div('stat-block', `
+    <div>
+      <div class="stat-label">${s.label}</div>
+      <div class="stat-sub">${s.sub}</div>
+    </div>
+    <div class="stat-val">${s.value}</div>
+  `));
+});
+heroRight.appendChild(div('stat-block', `
+  <div>
+    <div class="stat-label">Current status</div>
+    <div class="stat-sub">Open to QA / Tech roles in Japan</div>
+  </div>
+  <div class="status-pill">${DATA.status}</div>
+`));
+heroRight.appendChild(div('location-tag', `📍 ${DATA.location}`));
+
+// ── section builder util ──────────────────────────────────────
+const sections = document.getElementById('sections');
+let sectionNum = 1;
+
+function makeSection(id, heading) {
+  const sec = el('section'); sec.id = id;
+  sec.innerHTML = `
+    <div class="section-eyebrow reveal"><span class="section-num">${pad(sectionNum)} — </span>${id.charAt(0).toUpperCase() + id.slice(1)}</div>
+    <h2 class="reveal">${heading}</h2>
+  `;
+  sectionNum++;
+  sections.appendChild(sec);
+  return sec;
+}
+
+// ── about ────────────────────────────────────────────────────
+{
+  const sec = makeSection('about', 'A <em>tester</em> who thinks like a researcher.');
+  const grid = div('about-grid reveal');
+
+  const body = div('about-body');
+  DATA.about.paragraphs.forEach(p => {
+    const para = el('p'); para.innerHTML = p; body.appendChild(para);
+  });
+
+  const sidebar = div('about-sidebar');
+  DATA.about.sidebar.forEach(card => {
+    sidebar.appendChild(div('sidebar-card', `
+      <div class="sidebar-card-label">${card.label}</div>
+      <div class="sidebar-card-body">${card.body}</div>
+    `));
+  });
+
+  grid.appendChild(body);
+  grid.appendChild(sidebar);
+  sec.appendChild(grid);
+}
+
+// ── experience ───────────────────────────────────────────────
+{
+  const sec = makeSection('experience', 'Where I\'ve <em>shipped</em> things.');
+  DATA.experience.forEach(job => {
+    const item = div('exp-item reveal', `
+      <div class="exp-meta">
+        <strong>${job.type}</strong>
+        ${job.period}<br><br>
+        ${job.org}
+      </div>
+      <div>
+        <div class="exp-title">${job.title}</div>
+        <div class="exp-company">${job.company}</div>
+        <ul class="exp-body">
+          ${job.bullets.map(b => `<li>${b}</li>`).join('')}
+        </ul>
+        <div class="tags">
+          ${job.tags.map(t => `<span class="tag">${t}</span>`).join('')}
+        </div>
+      </div>
+    `);
+    sec.appendChild(item);
+  });
+}
+
+// ── research ─────────────────────────────────────────────────
+{
+  const sec = makeSection('research', 'Published <em>work</em> & active builds.');
+
+  DATA.papers.forEach(paper => {
+    const linkHtml = paper.link
+      ? `<a href="${paper.link}" class="paper-link" target="_blank">Read paper</a>`
+      : '';
+    sec.appendChild(div('paper-card reveal', `
+      <div class="paper-year">${paper.year}</div>
+      <div>
+        <span class="paper-badge">${paper.badge}</span>
+        <div class="paper-title">${paper.title}</div>
+        <div class="paper-desc">${paper.desc}</div>
+        <div class="tags">${paper.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
+        ${linkHtml}
+      </div>
+    `));
+  });
+
+  if (DATA.wip && DATA.wip.title) {
+    sec.appendChild(div('wip-card reveal', `
+      <div class="wip-label">${DATA.wip.label}</div>
+      <div class="wip-title">${DATA.wip.title}</div>
+      <div class="wip-desc">${DATA.wip.desc}</div>
+    `));
+  }
+}
+
+// ── projects ─────────────────────────────────────────────────
+{
+  const sec = makeSection('projects', 'Things I\'ve <em>built.</em>');
+  const grid = div('projects-grid reveal');
+
+  DATA.projects.forEach((proj, i) => {
+    const hasUrl = !!proj.link;
+    const linkEl = hasUrl
+      ? `<a href="${proj.link}" class="project-link has-url" target="_blank">${proj.linkLabel}</a>`
+      : `<span class="project-link no-url">${proj.linkLabel}</span>`;
+
+    grid.appendChild(div('project-card', `
+      <div class="project-num">${pad(i + 1)}</div>
+      <div class="project-title">${proj.title}</div>
+      <div class="project-sub">${proj.sub}</div>
+      <div class="project-desc">${proj.desc}</div>
+      <div class="tags" style="margin-bottom:0.85rem">
+        ${proj.tags.map(t => `<span class="tag">${t}</span>`).join('')}
+      </div>
+      ${linkEl}
+    `));
+  });
+
+  sec.appendChild(grid);
+}
+
+// ── stack ────────────────────────────────────────────────────
+{
+  const sec = makeSection('stack', 'Tools I <em>reach for.</em>');
+  const grid = div('stack-grid reveal');
+
+  DATA.skills.forEach(cat => {
+    grid.appendChild(div('stack-cat', `
+      <div class="stack-cat-name">${cat.category}</div>
+      <div class="stack-items">
+        ${cat.items.map(i => `<span class="stack-item">${i}</span>`).join('')}
+      </div>
+    `));
+  });
+
+  sec.appendChild(grid);
+}
+
+// ── contact ──────────────────────────────────────────────────
+{
+  const sec = makeSection('contact', 'Let\'s <em>work</em> together.');
+  sec.innerHTML += `
+    <div class="contact-grid reveal">
+      <div>
+        <p class="contact-desc">
+          I'm actively looking for <strong>QA Engineer, SDET, or tech roles</strong> at
+          English-friendly companies in Japan — especially global tech firms,
+          foreign-affiliated companies, and multinational consultancies.
+          If you're hiring or just want to talk shop, reach out.
+        </p>
+        <div class="contact-links">
+          <a href="mailto:${DATA.email}" class="contact-link">
+            <span class="contact-link-label">Email</span>${DATA.email}
+          </a>
+          <a href="https://${DATA.linkedin}" class="contact-link" target="_blank">
+            <span class="contact-link-label">LinkedIn</span>${DATA.linkedin}
+          </a>
+          <a href="https://${DATA.github}" class="contact-link" target="_blank">
+            <span class="contact-link-label">GitHub</span>${DATA.github}
+          </a>
+          <a href="${DATA.cv}" class="contact-link" target="_blank">
+            <span class="contact-link-label">CV / Resume</span>Download PDF →
+          </a>
+        </div>
+      </div>
+      <div class="contact-right">
+        <div class="contact-right-title">Open to</div>
+        <p>${DATA.contactNote}</p>
+        <ul class="avail-list">
+          ${DATA.openTo.map(item => `<li>${item}</li>`).join('')}
+        </ul>
+      </div>
+    </div>
+  `;
+}
+
+// ── footer ───────────────────────────────────────────────────
+document.getElementById('footer').innerHTML = `
+  <div class="footer-text">${initials}_ <span>© ${new Date().getFullYear()} · ${DATA.location}</span></div>
+  <div class="footer-text"><span>${DATA.about.sidebar[0].body.replace(/<[^>]*>/g, ' ').trim()}</span></div>
+`;
+
+// ── nav shrink on scroll ──────────────────────────────────────
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 60);
+}, { passive: true });
+
+// ── mobile nav ───────────────────────────────────────────────
+document.getElementById('navToggle').addEventListener('click', () => {
+  navbar.classList.toggle('nav-mobile-open');
+});
+document.querySelectorAll('.nav-links a').forEach(a =>
+  a.addEventListener('click', () => navbar.classList.remove('nav-mobile-open'))
+);
+
+// ── scroll reveal ─────────────────────────────────────────────
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 60);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
