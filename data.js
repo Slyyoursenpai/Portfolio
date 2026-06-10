@@ -147,7 +147,7 @@ const DATA = {
       sub:       "Mobile cataract detection CNN model demonstrated via an App",
       desc:      "Developed an Android application for Cataract detection using a lightweight CNN model for Edge devices as part of published research. 'Mobile Detection of Cataracts with an Optimised Lightweight Deep Edge Intelligent Technique' - [IET Cyber-Physical Systems: Theory & Applications], [2024]",
       tags:      ["Machine Learning", "TFLite", "Java", "CNN", "ML Research"],
-      link:      "hhttps://github.com/Slyyoursenpai/I-Scan",
+      link:      "https://github.com/Slyyoursenpai/I-Scan",
       linkLabel: "View on GitHub",
     },
   /*  {
@@ -161,13 +161,13 @@ const DATA = {
  
     {
       title:     "Pixel Invaders",
-      sub:       "Classic Retro inspired arcade shooter developed using Pico-8 Engine",
-      desc:      "Retro inspired game developed using the Pico-8 engine and its own subset of the Lua language, followed game design patterns. Published on Itch.io",
+      sub:       "Classic Retro-inspired arcade shooter developed using Pico-8 Engine",
+      desc:      "Retro-inspired game developed using the Pico-8 engine and its own subset of the Lua language, followed game design patterns. Published on Itch.io",
       tags:      ["Game Development", "Lua", "Game Design", "Pico-8", "Itchio"],
       link:      "https://github.com/Slyyoursenpai/Wordpress-Automation.git",
       linkLabel: "View on GitHub",
       //link: "https://slyyoursenpai.itch.io/pixel-invaders",
-     // linkLabel: "View on Itch.io"
+     // linkLabel: "View on Itch.io."
     },
 
 
